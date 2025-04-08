@@ -1,87 +1,57 @@
-// 1. Returns the sum of two numbers
-const competition
-function sum(a, b) {
-  return a + b;
+// 1. Returns the square of a number
+function square(n) {
+  return n * n;
 }
 
-// 2. Capitalizes the first letter of a word
-function capitalize(word) {
-  return word.charAt(0).toUpperCase() + word.slice(1);
+// 2. Greets a user with their name and age
+function greetUser(user) {
+  return `Hi ${user.name}, age ${user.age}`;
 }
 
-// 3. Returns the length of each word in the array
-function wordLengths(words) {
-  return words.map(w => w.length);
+// 3. Filters only strings from an array
+function filterStrings(arr) {
+  return arr.filter(item => typeof item === "string");
 }
 
-// 4. Greets a user with a message
-function greet(name) {
-  return `Hello, ${name}!`;
+// 4. Logs the details of a product
+function logProduct(product) {
+  console.log(`${product.name} - $${product.price} - ${product.inStock ? "In Stock" : "Out of Stock"}`);
 }
 
-// 5. Multiplies all numbers in an array
-function multiplyAll(nums) {
-  return nums.reduce((acc, val) => acc * val, 1);
-// 6. Returns full name from a user object
-function getFullName(user) {
-  return `${user.first} ${user.last}`;
-}
-
-// 7. Filters products that are in stock
-function filterInStock(products) {
-  return products.filter(p => p.inStock);
-}
-
-// 8. Formats a coordinate object
-function formatCoord(coord) {
-  return `(${coord.x}, ${coord.y})`;
-}
-
-// 9. Logs a message with an optional prefix
-function log(message, prefix) {
-  console.log(prefix ? `[${prefix}] ${message}` : message);
-}
-
-// 10. Gets the average age of users
-function averageAge(users) {
-  const total = users.reduce((sum, u) => sum + u.age, 0);
-  return total / users.length;
-}
-// 11. Handles different shapes with a kind field
-function getArea(shape) {
-  if (shape.kind === "circle") {
-    return Math.PI * shape.radius ** 2;
-  } else if (shape.kind === "rectangle") {
-    return shape.width * shape.height;
-  }
-}
-
-// 12. Generic function to wrap any value in an array
-function wrapInArray(value) {
+// 5. Wraps a value in an array (generic)
+function wrap(value) {
   return [value];
 }
 
-// 13. Logs info about a status using enum-like strings
-function handleStatus(status) {
-  switch (status) {
-    case "success":
-      console.log("Success!");
-      break;
-    case "error":
-      console.log("Error occurred.");
-      break;
-    case "loading":
-      console.log("Loading...");
-      break;
+// 6. Merges two objects
+function mergeObjects(a, b) {
+  return { ...a, ...b };
+}
+
+// 7. Calculates area based on shape type
+function calculateArea(shape) {
+  switch (shape.kind) {
+    case "circle":
+      return Math.PI * shape.radius ** 2;
+    case "rectangle":
+      return shape.width * shape.height;
   }
 }
 
-// 14. Accepts a tuple with name and score
-function showScore(entry) {
-  return `${entry[0]} scored ${entry[1]}`;
+// 8. Handles status values
+function handleStatus(status) {
+  if (status === "success") return "✅ Success";
+  if (status === "error") return "❌ Error";
+  return "⏳ Loading";
 }
 
-// 15. Merges two objects
-function merge(obj1, obj2) {
-  return { ...obj1, ...obj2 };
+// 9. Displays a score entry (tuple)
+function showEntry(entry) {
+  const [name, score] = entry;
+  return `${name} scored ${score}`;
+}
+
+// 10. Sorts an array of tasks by priority
+function sortTasks(tasks) {
+  return tasks.sort((a, b) => b.priority - a.priority);
 }
